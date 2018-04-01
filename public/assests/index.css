@@ -1,0 +1,55 @@
+a{text-decoration: none}
+.pointer{cursor: pointer}
+.auto_overflow{overflow: auto}
+.h{display: none}
+.visible{visibility: visible}
+
+.ml-sm{margin-left: 5px}
+.ml{margin-left: 10px}
+.ml-md{margin-left: 15px}
+.ml-lg{margin-left: 20px}
+
+.mb-sm{margin-bottom: 5px}
+.mb{margin-bottom: 10px}
+.mb-md{margin-bottom: 15px}
+.mb-lg{margin-bottom: 20px}
+
+.mt-sm{margin-top: 5px}
+.mt{margin-top: 10px}
+.mt-md{margin-top: 15px}
+.mt-lg{margin-top: 20px}
+
+.mr-sm{margin-right: 5px}
+.mr{margin-right: 10px}
+.mr-md{margin-right: 15px}
+.mr-lg{margin-right: 20px}
+
+.f-sm{font: 5px}
+.f{font: 10px}
+.f-12{font: 12px}
+.f-md{font: 15px}
+.f-lg{font: 20px}
+
+.pl-sm{padding-left: 5px}
+.pl{padding-left: 10px}
+.pl-md{padding-left: 15px}
+.pl-lg{padding-left: 20px}
+
+.pr-sm{padding-right: 5px}
+.pr{padding-right: 10px}
+.pr-md{padding-right: 15px}
+.pr-lg{padding-right: 20px}
+
+.pt-sm{padding-top: 5px}
+.pt{padding-top: 10px}
+.pt-md{padding-top: 15px}
+.pt-lg{padding-top: 20px}
+
+.pb-sm{padding-bottom: 5px}
+.pb{padding-bottom: 10px}
+.pb-md{padding-bottom: 15px}
+.pb-lg{padding-bottom: 20px}
+
+.valign_middle{vertical-align: middle}
+.valign_sub{vertical-align: sub}
+.valign_top{vertical-align: top}
