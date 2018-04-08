@@ -3,7 +3,7 @@ import ChatMessage from './chat_message';
 
 export default class ChatHistory extends React.Component{
     render(){
-      let {message} = this.props;
+      let {message, typing} = this.props;
       let message_list = message.map((m, index)=>
           <ChatMessage
             key={index}
@@ -15,8 +15,9 @@ export default class ChatHistory extends React.Component{
           />
       );
       return(
-          <ul>
-            {message_list}                  
+          <ul id="chat_list">
+            {message_list} 
+            {typing && <div className="message-typing">{typing}</div>}                 
           </ul>
         )
     }

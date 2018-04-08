@@ -7,6 +7,7 @@ export default class Chat extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            typing : null,
             activeConversation : props.activeConversation,
             messageResponses: [
                 'Why did the web developer leave the restaurant? Because of the table layout.',
@@ -17,13 +18,27 @@ export default class Chat extends React.Component{
                 'An SEO expert walks into a bar, bars, pub, tavern, public house, Irish pub, drinks, beer, alcohol'
               ]
         }
-        this.sendMessage     = this.sendMessage.bind(this);
+        this.sendMessage   = this.sendMessage.bind(this);
+        this.typingMessage = this.typingMessage.bind(this);
+    }
+
+    componentDidMount(){
+        this.setHeight();
     }
 
     componentWillReceiveProps(nxtProps){
         if(nxtProps.activeConversation.id!==this.state.activeConversation.id){
             this.setState({activeConversation : nxtProps.activeConversation});
         }
+    }
+
+    typingMessage(val){
+        this.setState({typing : val});
+    }
+
+    setHeight(){
+        let listId = document.getElementById('chat_list');
+        listId.scrollTop = listId.scrollHeight;
     }
 
     sendMessage(text){
@@ -39,6 +54,7 @@ export default class Chat extends React.Component{
         }
         activeConversation.message.push(message);
         _this.setState({activeConversation});
+        this.setHeight();
         setTimeout(function(){
             _this.replyByReceiver(activeConversation);
         },1000);
@@ -54,6 +70,7 @@ export default class Chat extends React.Component{
         }
         activeConversation.message.push(message);
         this.setState({activeConversation});
+        this.setHeight();
     }
 
     getRandomItem(arr) {
@@ -67,8 +84,12 @@ export default class Chat extends React.Component{
         return(
             <div className="chat-history">
                 <ChatHeader activeUser={activeUser} messageLength={activeConversation.message} />
-                <ChatHistory activeUser={activeUser} message={activeConversation.message} />
-                <SendMessage sendMessage={this.sendMessage} activeUser={activeUser} activeConversation={activeConversation} />
+                <ChatHistory typing={this.state.typing} activeUser={activeUser} message={activeConversation.message} />
+                <SendMessage sendMessage={this.sendMessage} 
+                    setHeight={this.setHeight}
+                    typingMessage={this.typingMessage}
+                    activeUser={activeUser} 
+                    activeConversation={activeConversation} />
             </div>
         )
     }

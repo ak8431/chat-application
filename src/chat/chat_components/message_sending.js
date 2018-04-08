@@ -11,8 +11,12 @@ export default class SendMessage extends React.Component{
     typeMessage(e){
         // console.log('typing message', e.target.value);
         if(e.target.value.trim()===''){
+            this.props.typingMessage();
+            e.target.value = "";
             return false;
         }
+        this.props.typingMessage('Typing');
+        this.props.setHeight();
         this.setState({chatMessage : e.target.value});
         if(e.keyCode===13){
             this.sendMessage(e.target.value);
@@ -28,6 +32,7 @@ export default class SendMessage extends React.Component{
         console.log('sendMessage', text);
         // return false;
         this.props.sendMessage(text);
+        this.props.typingMessage();
         this.setState({chatMessage : null});
     }
 

@@ -53,3 +53,9 @@ a{text-decoration: none}
 .valign_middle{vertical-align: middle}
 .valign_sub{vertical-align: sub}
 .valign_top{vertical-align: top}
+
+.internet{
+    position: relative;
+    z-index: 9999;
+    text-transform: uppercase;
+}
